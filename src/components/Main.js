@@ -1,6 +1,7 @@
 import React from 'react';
 import HornedBeasts from './HornedBeasts';
 import HornedFile from '../assets/HornedBeasts.json';
+import SelectedBeast from './SelectedBeast';
 
 
 
@@ -10,10 +11,25 @@ class Main extends React.Component {
     getJsonData() {
         return HornedFile.map((beast) => {
             return (
-                <HornedBeasts title={beast.title}
-                    imageUrl={beast.image_url}
-                    desc={beast.description}
-                    horns={beast.horns} />
+                <div>
+
+                    <HornedBeasts title={beast.title}
+                        imageUrl={beast.image_url}
+                        desc={beast.description}
+                        horns={beast.horns} />
+
+
+
+
+{/* 
+                    <SelectedBeast title={beast.title}
+                        imageUrl={beast.image_url}
+                        desc={beast.description}
+                        horns={beast.horns} /> */}
+                </div>
+
+
+
             );
         });
     }
