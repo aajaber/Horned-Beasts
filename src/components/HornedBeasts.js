@@ -1,4 +1,7 @@
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+
 
 // HornedBeast =====> Main
 
@@ -14,7 +17,6 @@ class HornedBeasts extends React.Component {
     }
 
     render() {
-
         //====== voting function
         const vote = () => {
             //  console.log('Click');
@@ -23,17 +25,19 @@ class HornedBeasts extends React.Component {
             });
         }
         return (
-            <div>
-                <h2>{this.props.title}</h2>
-
-                <img src={this.props.imageUrl}
+            <Card style={{ width: "18rem" }}>
+                <Card.Img
+                    onClick={() => vote()}
+                    src={this.props.imageUrl}
                     alt={this.props.title}
                     title={this.props.title}
-                    onClick={() => vote()}
                 />
-
-                <p>{this.props.desc} , Number of Horns : {this.props.horns}</p>
-            </div>
+                <Card.Body>
+                    <Card.Title> {this.props.title}</Card.Title>
+                    <Card.Text>{this.props.describtion}</Card.Text>
+                    <Card.Text>votes= {this.state.counter}</Card.Text>
+                </Card.Body>
+            </Card>
         );
     }
 }
