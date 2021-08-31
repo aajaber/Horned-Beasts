@@ -11,8 +11,8 @@ class Main extends React.Component {
         return HornedFile.map((beast) => {
             return (
                 <HornedBeasts title={beast.title}
-                    imageUrl={beast.imageUrl}
-                    desc={beast.desc}
+                    imageUrl={beast.image_url}
+                    desc={beast.description}
                     horns={beast.horns} />
             );
         });

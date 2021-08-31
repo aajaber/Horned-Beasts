@@ -19,7 +19,7 @@ class HornedBeasts extends React.Component {
     render() {
         //====== voting function
         const vote = () => {
-            //  console.log('Click');
+              console.log('Click');
             this.setState({
                 numberOfVotes: this.state.numberOfVotes + 1,
             });
