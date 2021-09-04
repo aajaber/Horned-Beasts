@@ -1,9 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Modal'
-import HornedFile from '../assets/HornedBeasts.json';
-import HornedBeasts from './HornedBeasts';
+
 
 
 // Modal =====> App
@@ -11,17 +9,23 @@ import HornedBeasts from './HornedBeasts';
 
 class SelectedBeast extends React.Component {
 
-    
-
     render() {
         return (
             <div>
-                {this.getBeastData()}
+                <Modal show={this.props.show} onHide={this.props.modalClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{this.props.title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{this.props.description}</Modal.Body>
+                    <img className="imgModal" src={this.props.image_url} />
+                    <Modal.Footer></Modal.Footer>
+                </Modal>
+
+                
             </div>
-
         );
-
     }
+
 }
 
 
