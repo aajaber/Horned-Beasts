@@ -3,40 +3,55 @@ import Header from './components/Header'
 import Main from './components/Main';
 import Footer from './components/Footer';
 import HornedFile from './assets/HornedBeasts.json';
-
-
+import SelectedBeast from './components/SelectedBeast';
 
 
 // Header , Main , Footer =====> App ===> index.js 
 
 class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state({
-      dataRendered: HornedFile,
-      beastName:{}
-    });
+    this.state = {
+      show: false,
+      title: "",
+      description: "",
+      image_url: "",
+    };
   }
 
-  displayData =(imageTitle)=>{
-    let beastName= HornedFile.find(e=>e.title === imageTitle);
+  displayData = (imageTitle) => {
+    let beastName = HornedFile.find(e => e.title === imageTitle);
     this.setState({
-        beastName:beastName
+      beastName: beastName
     });
   }
 
-  closeData=()=>{
-    
-  }
+  closeModal = (title, description, imageUrl) => {
+    this.setState({
+      show: !this.state.show,
+
+      title: title,
+      description: description,
+      imageUrl: imageUrl,
+    });
+  };
 
   render() {
     return (
       <div>
 
         <Header />
-        <Main />
+        <Main bests={HornedFile} handleClose={this.handleClose} />
         <Footer />
+
+        <SelectedBeast
+          show={this.state.show}
+          handleClose={this.handleClose}
+          title={this.state.title}
+          description={this.state.description}
+          image_url={this.state.imageUrl}
+        />
 
       </div>
     )

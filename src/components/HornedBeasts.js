@@ -16,34 +16,37 @@ class HornedBeasts extends React.Component {
             numberOfVotes: 0,
         }
     }
+    //===== function to increment the number of votes for each beast.
+    vote = () => {
+        this.setState({
+            numberOfVotes: this.state.numberOfVotes + 1,
+        });
+        this.props.handleClose(
+            this.props.title,
+            this.props.description,
+            this.props.imageUrl);
+    };
 
     render() {
-
-        
-        //====== voting Function:
-        const vote = () => {
-             // console.log('Click');
-            this.setState({
-                numberOfVotes: this.state.numberOfVotes + 1,
-            });
-        }
-
-      
         return (
-            <Card style={{ width: "18rem" }}>
-                <Card.Img
-                    onClick={() => vote()}
-                    src={this.props.imageUrl}
-                    alt={this.props.title}
-                    title={this.props.title}
-                    
-                />
-                <Card.Body>
-                    <Card.Title> {this.props.title}</Card.Title>
-                    <Card.Text>{this.props.describtion}</Card.Text>
-                    <Card.Text>votes= {this.state.numberOfVotes}</Card.Text>
-                </Card.Body>
-            </Card>
+            <div>
+                <Card style={{ width: "20rem" }}>
+                    <Card.Img
+                       
+                        onClick={this.vote}
+                        src={this.props.imageUrl}
+                        alt={this.props.title}
+                        title={this.props.title}
+                        
+                    />
+                    <Card.Body>
+                        <Card.Title>The Title : {this.props.title}</Card.Title>
+                        <Card.Text>Number of votes : {this.state.numberOfVotes} 💓</Card.Text>
+                        <Card.Text>horns: {this.props.horns}</Card.Text>
+                        <Card.Text>Descriptions: {this.props.descriptions}</Card.Text>
+                    </Card.Body>
+                </Card>
+            </div>
         );
     }
 }
