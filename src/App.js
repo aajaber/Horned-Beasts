@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header'
 import Main from './components/Main';
 import Footer from './components/Footer';
+import FilterForm from './components/Dropdown';
 import HornedFile from './assets/HornedBeasts.json';
 import SelectedBeast from './components/SelectedBeast';
 
@@ -9,6 +10,7 @@ import SelectedBeast from './components/SelectedBeast';
 // Header , Main , Footer =====> App ===> index.js 
 
 class App extends React.Component {
+
 
   constructor(props) {
     super(props);
@@ -38,13 +40,15 @@ class App extends React.Component {
     });
   };
 
+
   render() {
     return (
       <div>
-
+        <FilterForm />
         <Header />
         <Main bests={HornedFile} modalClose={this.modalClose} />
         <Footer />
+
 
         <SelectedBeast
           show={this.state.show}
@@ -53,7 +57,6 @@ class App extends React.Component {
           description={this.state.description}
           image_url={this.state.imageUrl}
         />
-
       </div>
     )
   }
