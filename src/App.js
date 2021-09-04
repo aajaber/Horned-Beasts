@@ -27,7 +27,8 @@ class App extends React.Component {
     });
   }
 
-  closeModal = (title, description, imageUrl) => {
+
+  modalClose = (title, description, imageUrl) => {
     this.setState({
       show: !this.state.show,
 
@@ -42,12 +43,12 @@ class App extends React.Component {
       <div>
 
         <Header />
-        <Main bests={HornedFile} handleClose={this.handleClose} />
+        <Main bests={HornedFile} modalClose={this.modalClose} />
         <Footer />
 
         <SelectedBeast
           show={this.state.show}
-          handleClose={this.handleClose}
+          modalClose={this.modalClose}
           title={this.state.title}
           description={this.state.description}
           image_url={this.state.imageUrl}

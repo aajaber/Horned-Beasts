@@ -14,17 +14,18 @@ class HornedBeasts extends React.Component {
         super(props);
         this.state = {
             numberOfVotes: 0,
-        }
+        };
     }
     //===== function to increment the number of votes for each beast.
     vote = () => {
         this.setState({
             numberOfVotes: this.state.numberOfVotes + 1,
         });
-        this.props.handleClose(
+        this.props.modalClose(
             this.props.title,
             this.props.description,
             this.props.imageUrl);
+      
     };
 
     render() {

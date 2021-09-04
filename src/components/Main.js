@@ -15,9 +15,9 @@ class Main extends React.Component {
                     title={beast.title}
                     imageUrl={beast.image_url}
                     desc={beast.description}
-                    handleClose={this.props.handleClose}
+                    modalClose={this.props.modalClose}
                 />
-                
+
             );
         });
         return <main>{beastsArr}</main>;
