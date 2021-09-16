@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -41,11 +42,13 @@ class App extends React.Component {
       <div>
         {/* <FilterForm /> */}
         <Header />
+
         <Main bests={HornedFile} modalClose={this.modalClose} />
+
         <Footer />
 
         <SelectedBeast
-          // show={this.state.show}
+          show={this.state.show}
           modalClose={this.modalClose}
           title={this.state.title}
           description={this.state.description}
